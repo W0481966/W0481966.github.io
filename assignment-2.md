@@ -64,4 +64,43 @@ int pinFromStep(int step) {
 }
 ```
 
+## Debounce button
+
+[Watch video](/assets/assignment-2/ELEC3010 lab 2 - debounce.mp4)
+
+```c
+const int debounceDelay = 10;
+const int pushButton = 2;
+int state = 0;
+int count = 0;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(pushButton, INPUT);
+}
+
+void loop() {
+  int newState1 = digitalRead(pushButton);
+
+  if (newState1 != state) {
+    delay(debounceDelay);
+    int newState2 = digitalRead(pushButton);
+
+    if (newState2 == newState1) {
+      state = newState1;
+
+      if (state == 1) {
+        count++;
+        // Tempting to include stdio.h and sprintf() this
+        Serial.print("You've pressed the button ");
+        Serial.print(count);
+        Serial.println(" times.");
+      }
+    }
+  }
+
+  delay(1);  // delay in between reads for stability
+}
+```
+
 [RGB LED](/assets/assignment-2/ELEC3010 lab 2 - rgb led.mp4)
