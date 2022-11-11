@@ -173,3 +173,71 @@ void loop() {
   delay(100);
 }
 ```
+
+## RGB LED
+
+[Watch video](/assets/assignment-2/ELEC3010 lab 2 - rgb led.mp4)
+
+```c
+const int buttonPin = 2;
+const int debounceDelay = 10;
+// 0 is released, 1 is pressed
+int buttonState = 0;
+
+const int potPin = A0;
+
+/* Index 0 = red, 1 = green, 2 = blue.
+ * By constructing it like this, we can easily switch between
+ * colors with modular arithmetic. */
+const int colorPins[] = {11, 9, 10};
+int color[] = {0, 0, 0};
+// This tells us which color component to change.
+int colorIndex = 0;
+
+void setup() {
+  pinMode(buttonPin, INPUT);
+  for (int i = 0; i < 3; i++) pinMode(colorPins[i], OUTPUT);
+}
+
+void loop() {
+  pollButton(cycleColor, NULL);
+
+  int colorComponentLevel = map(analogRead(potPin), 0, 1023, 0, 255);
+  color[colorIndex] = colorComponentLevel;
+
+  // Display the color
+  for (int i = 0; i < 3; i++) {
+    analogWrite(colorPins[i], color[i]);
+  }
+
+  delay(1);
+}
+
+/* Move to the next color component: R -> G, G -> B, B -> R. */
+void cycleColor() {
+  colorIndex = (colorIndex + 1) % 3;
+}
+
+/* If the button has actually been pressed or released, we call the
+ * appropriate function. Pass null if you don't want to execute
+ * anything on that event. Uses a debounce check to ensure that the
+ * button was pressed. */
+void pollButton(void (*onPress)(void), void (*onRelease)(void)) {
+  int curButtonState = digitalRead(buttonPin);
+
+  if (curButtonState != buttonState) {
+    delay(debounceDelay);
+    int curButtonState2 = digitalRead(buttonPin);
+
+    if (curButtonState2 == curButtonState) {
+      buttonState = curButtonState;
+
+      if (buttonState == 0) {
+        if (onRelease) (*onRelease)();
+      } else {
+        if (onPress) (*onPress)();
+      }
+    }
+  }
+}
+```
