@@ -135,3 +135,41 @@ void loop() {
   delay(1);
 }
 ```
+
+## Nightlight
+
+[Watch video](/assets/assignment-2/ELEC3010 lab 2 - photoresistor.mp4)
+
+```c
+const int ledPin = 9;
+const int photoResPin = A0;
+
+// Measured minimum and maximum values
+const int lightMin = 10;
+const int lightMax = 446;
+const int lightThreshold = (lightMin + lightMax) / 2;
+// The amount to increase or decrease LED luminence per iteration
+const int lightDelta = 8;
+
+// LED luminence, from 0-255
+int ledValue = 0;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  int lightValue = analogRead(photoResPin);
+
+  if (lightValue < lightThreshold) {
+    ledValue += lightDelta;
+    if (ledValue > 255) ledValue = 255;
+  } else {
+    ledValue -= lightDelta;
+    if (ledValue < 0) ledValue = 0;
+  }
+
+  analogWrite(ledPin, ledValue);
+  delay(100);
+}
+```
