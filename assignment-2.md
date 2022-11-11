@@ -66,7 +66,7 @@ int pinFromStep(int step) {
 
 ## Debounce button
 
-[Watch video](/assets/assignment-2/ELEC3010 lab 2 - debounce.mp4)
+[Watch video](/assets/assignment-2/ELEC3010 lab 2 - debounce.webm)
 
 ```c
 const int debounceDelay = 10;
