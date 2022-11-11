@@ -103,4 +103,35 @@ void loop() {
 }
 ```
 
-[RGB LED](/assets/assignment-2/ELEC3010 lab 2 - rgb led.mp4)
+## Variable blink rate
+
+[Watch video](/assets/assignment-2/ELEC3010 lab 2 - variable blink.mp4)
+
+```c
+const int ledPin = 13;
+const int potPin = A0;
+
+int led = 0;
+int ledDuration = -1;
+int lastLedChangeTime = -100000;
+
+// the setup routine runs once when you press reset:
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  int potValue = analogRead(potPin);
+  int ledDuration = map(potValue, 0, 1023, 1000, 50);
+  int elapsed = millis();
+  
+  if (elapsed - lastLedChangeTime >= ledDuration) {
+    led = !led;
+    digitalWrite(ledPin, led ? HIGH : LOW);
+    lastLedChangeTime = elapsed;
+  }
+
+  delay(1);
+}
+```
