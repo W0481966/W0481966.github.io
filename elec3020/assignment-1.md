@@ -1,3 +1,7 @@
+## Networking foundations certificate
+
+[View PDF](/assets/elec3020/assignment-1/cert.pdf)
+
 ## LED over HTTP
 
 [Watch video](/assets/elec3020/assignment-1/Lab 1 Q2.mp4)
