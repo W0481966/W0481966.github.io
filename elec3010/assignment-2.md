@@ -8,7 +8,7 @@ permalink: /assignment-2
 
 ## Back and forth LEDs
 
-[Watch video](/assets/assignment-2/ELEC3010 lab 2 - back and forth.mp4)
+[Watch video](/assets/elec3010/assignment-2/ELEC3010 lab 2 - back and forth.mp4)
 
 
 ```c
@@ -66,7 +66,7 @@ int pinFromStep(int step) {
 
 ## Debounce button
 
-[Watch video](/assets/assignment-2/ELEC3010 lab 2 - debounce.webm)
+[Watch video](/assets/elec3010/assignment-2/ELEC3010 lab 2 - debounce.webm)
 
 ```c
 const int debounceDelay = 10;
@@ -105,7 +105,7 @@ void loop() {
 
 ## Variable blink rate
 
-[Watch video](/assets/assignment-2/ELEC3010 lab 2 - variable blink.mp4)
+[Watch video](/assets/elec3010/assignment-2/ELEC3010 lab 2 - variable blink.mp4)
 
 ```c
 const int ledPin = 13;
@@ -138,7 +138,7 @@ void loop() {
 
 ## Nightlight
 
-[Watch video](/assets/assignment-2/ELEC3010 lab 2 - photoresistor.mp4)
+[Watch video](/assets/elec3010/assignment-2/ELEC3010 lab 2 - photoresistor.mp4)
 
 ```c
 const int ledPin = 9;
@@ -176,7 +176,7 @@ void loop() {
 
 ## RGB LED
 
-[Watch video](/assets/assignment-2/ELEC3010 lab 2 - rgb led.mp4)
+[Watch video](/assets/elec3010/assignment-2/ELEC3010 lab 2 - rgb led.mp4)
 
 ```c
 const int buttonPin = 2;
