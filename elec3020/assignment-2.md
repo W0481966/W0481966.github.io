@@ -33,7 +33,7 @@ thermometer has been replaced by a photoresistor.
 {% include elec3020/assignment-2/arduino.ino %}
 ```
 
-#### ESP32 with I^(2)C 1602 LCD display
+#### ESP32 with I2C 1602 LCD display
 ```cpp
 {% include elec3020/assignment-2/esp32.ino %}
 ```
