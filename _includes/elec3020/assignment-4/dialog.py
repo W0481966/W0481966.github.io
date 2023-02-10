@@ -8,8 +8,6 @@ locale.setlocale(locale.LC_ALL, '')
 d = Dialog(dialog='dialog')
 d.set_background_title('Insult Chris, that Craven Curmudgeon')
 
-#d.msgbox('Some text', title='Oh no')
-
 choices = [
         ('Ninny', 'Absolutely execrable', False),
         ('Nitwit', 'The vilest of the vile', False),
